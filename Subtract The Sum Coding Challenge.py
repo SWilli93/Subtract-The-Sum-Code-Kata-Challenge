@@ -24,3 +24,29 @@ for block in new_list_of_fruit:
     keys.append(block[0])
     values.append(block[1])
 fruit_list_dictionary = dict(zip(keys, values))
+
+# function to turn number into a list of digits
+# function to sum up all individual numbers into one number
+# returns original number minus sumed digits
+def subtract_the_sum(num):
+    x = [int(a) for a in str(num)]
+    return num - sum(x)
+
+
+# method to loops through fruit_list_dictionary until key is found
+# assume n >= 10 and n <= 10000
+def return_the_value(num):
+    new_num = subtract_the_sum(num)
+    should_restart = True
+    while should_restart:
+        for key in fruit_list_dictionary:
+            if str(new_num) in fruit_list_dictionary.keys():
+                should_restart = False
+                return fruit_list_dictionary[str(new_num)]
+            else:
+                new_num = subtract_the_sum(new_num)
+                print(new_num, key, fruit_list_dictionary[key])
+                continue
+            
+        
+return_the_value(7576)
